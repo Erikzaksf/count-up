@@ -17,9 +17,11 @@ $(document).ready(function () {
     var countBy = parseInt($('#count-by').val());
     var counts = countUpBy(countTo, countBy);
     if (counts) {
-      alert(counts);
+      counts.forEach(function(count) {
+        $(".answer").append("<li>" + count + "</li>");
+      });
     } else {
-      alert("Input was not valid. Please try again.");
+      $(".invalid-input").show();
     }
   });
 });
