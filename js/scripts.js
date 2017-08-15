@@ -12,6 +12,8 @@ function countUpBy(countTo, countBy) {
 
 $(document).ready(function () {
   $('#counts').submit(function (event) {
+    $(".invalid-input").hide();
+    $(".answer").empty();
     event.preventDefault();
     var countTo = parseInt($('#count-to').val());
     var countBy = parseInt($('#count-by').val());
