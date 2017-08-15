@@ -1,9 +1,13 @@
 function countUpBy(countTo, countBy) {
-  var counts = [];
-  for (var i = countBy; i <= countTo; i+=countBy) {
-    counts.push(i);
+  if (countTo > 0 && countBy > 0 && countTo >= countBy) {
+    var counts = [];
+    for (var i = countBy; i <= countTo; i+=countBy) {
+      counts.push(i);
+    }
+    return counts;
+  } else { // Invalid input
+    return undefined;
   }
-  return counts;
 }
 
 $(document).ready(function () {
@@ -12,7 +16,10 @@ $(document).ready(function () {
     var countTo = parseInt($('#count-to').val());
     var countBy = parseInt($('#count-by').val());
     var counts = countUpBy(countTo, countBy);
-    alert(counts);
+    if (counts) {
+      alert(counts);
+    } else {
+      alert("Input was not valid. Please try again.");
+    }
   });
-
 });
